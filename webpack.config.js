@@ -8,12 +8,15 @@ const config = {
         path: path.resolve(__dirname, 'public'),
         filename: 'bundle.js',
     },
+    resolve: {
+        extensions: ['.js','.json','.vue'],
+    },
     devServer: {
         hot: true,
         inline: true,
         contentBase: path.resolve(__dirname, 'public'),
         open:true,
-        host:'10.112.4.161'
+        // host:''
     },
     mode: 'development',
     module: {

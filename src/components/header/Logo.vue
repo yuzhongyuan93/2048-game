@@ -1,39 +1,46 @@
 <template>
-    <section class="head-bg">
-        <p class="title">HearthStone</p>
-        <p class="title">
-            <span>Check</span>
-            <img class="refresh" src="../../assets/refresh.png" @click="$emit('refresh')"/>
-        </p>
+    <section class="logo">
+        <section class="title">2048</section>
+        <section class="content">
+            <button class="button">New Game</button>
+        </section>
     </section>
 </template>
 
 <script>
-    import logo from '../../assets/tip_block.png';
     export default {
-        name: "Logo",
-        data:function () {
-            return {
-                logoImg:logo
-            }
-        }
+        name: "Logo"
     }
 </script>
 
 <style scoped>
-    .title {
-        font-size: 2rem;
-        font-weight: bold;
-        color: #795548;
-        align-self: center;
+    .logo {
+        height: 100%;
+        flex: 1 1 160px;
         display: flex;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
     }
-    .refresh {
-        vertical-align: -10%;
-        margin-left: 10px;
+    .title {
+        color: #776e65;
+        font-weight: bold;
+        font-size: 72px;
+        width: 100%;
+    }
+    .content {
+        display: flex;
+        justify-content: center;
+    }
+    .button {
+        color: #FFFFFF;
+        background: #8f7a66;
+        border-radius: 3px;
+        height: 42px;
+        line-height: 42px;
+        padding: 0 20px;
+        font-size: 20px;
+        font-weight: bold;
         cursor: pointer;
-        width: 2rem;
-        height: 2rem;
     }
 </style>
