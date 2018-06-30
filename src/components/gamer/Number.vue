@@ -1,12 +1,22 @@
 <template>
-    <div class="number number-2 number-position-0-1">
-        <div class="number-inner">2</div>
+    <div class="number number-2" :class="[position]">
+        <div class="number-inner">{{ number }}</div>
     </div>
 </template>
 
 <script>
+    import { mapState } from 'vuex';
     export default {
-        name: "Number"
+        name: "Number",
+        props:['row','col','number'],
+        data(){
+            return {
+
+            }
+        },
+        computed:{
+            position(){ return 'number-position-'+this.row+'-'+this.col },
+        },
     }
 </script>
 

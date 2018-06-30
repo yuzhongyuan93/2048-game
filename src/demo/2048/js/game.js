@@ -69,7 +69,6 @@
 							arr2[n].push(arr[m][n]);
 						}
 					}
-					console.log(arr2);
 					for( var i = 0 ; i < 4; i++ ){
 						var temp = arr2[i].filter(function(item){
 							return item != 0 ;
@@ -144,7 +143,6 @@
 							arr2[n].push(arr[m][n]);
 						}
 					}
-					console.log(arr2);
 					for( var i = 0 ; i < 4; i++ ){
 						var temp = arr2[i].filter(function(item){
 							return item != 0 ;
@@ -216,6 +214,7 @@
 		
 		//进行单次渲染
 		this.render = function(){
+			console.log(arr)
 			this.flush();
 			//每次新产生一个2
 			var x = getRandom(),
