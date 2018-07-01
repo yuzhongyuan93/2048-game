@@ -1,6 +1,6 @@
 <template>
-    <div class="number number-2" :class="[position]">
-        <div class="number-inner">{{ number }}</div>
+    <div class="number" :class="[positionClass,numberClass]">
+        <div class="number-inner" :name="new Date().getTime()">{{ number }}</div>
     </div>
 </template>
 
@@ -15,12 +15,29 @@
             }
         },
         computed:{
-            position(){ return 'number-position-'+this.row+'-'+this.col },
+            positionClass(){ return 'number-position-'+this.row+'-'+this.col },
+            numberClass(){ return 'number-'+this.number },
         },
+        methods:{
+            listenKeys(){
+                document.onkeydown = function(e){
+
+                }
+        }
     }
 </script>
 
 <style scoped>
+    /*@keyframes appear{*/
+        /*0%{*/
+            /*opacity: 0;*/
+            /*transform: scale(0);*/
+        /*}*/
+        /*100% {*/
+            /*opacity: 1.0;*/
+            /*transform: scale(1);*/
+        /*}*/
+    /*}*/
     .number {
         position: absolute;
         top: 10px;
