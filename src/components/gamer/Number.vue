@@ -1,5 +1,5 @@
 <template>
-    <div class="number" :class="[positionClass,numberClass]">
+    <div class="number" :class="[positionClass,numberClass]" @keydown="listenKeys">
         <div class="number-inner" :name="new Date().getTime()">{{ number }}</div>
     </div>
 </template>
@@ -8,21 +8,42 @@
     import { mapState } from 'vuex';
     export default {
         name: "Number",
-        props:['row','col','number'],
+        props:{
+            item:Object,//数字块信息
+            dataArray:Array,//数字矩阵
+        },
         data(){
             return {
 
             }
         },
         computed:{
+            row(){ return this.item.row },
+            col(){ return this.item.col },
+            number(){ return this.item.num },
             positionClass(){ return 'number-position-'+this.row+'-'+this.col },
             numberClass(){ return 'number-'+this.number },
         },
+        mounted(){
+            // this.listenKeys();
+        },
         methods:{
             listenKeys() {
-                document.onkeydown = function (e) {
-
-                }
+                console.log(123)
+                // const _this = this;
+                // document.onkeydown = (e)=>{
+                //     if( e.keyCode === 37 ){
+                //         // switch (_this.col) {
+                //         //     case 0: ;break;
+                //         //     case 1: {
+                //         //
+                //         //     };break;
+                //         //     case 2: ;break;
+                //         //     case 3: ;break;
+                //         // }
+                //         console.log(_this.item)
+                //     }
+                // }
             }
         }
     }

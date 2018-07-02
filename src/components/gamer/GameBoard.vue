@@ -2,7 +2,7 @@
     <section id="gameBody">
         <BaseBoard></BaseBoard>
         <div id="numbers">
-            <Number :row="item.row" :col="item.col" :number="item.num" v-for="item in computedArray"></Number>
+            <Number :item="item" :dataArray="lastArray" v-for="item in computedArray"></Number>
         </div>
     </section>
 </template>
@@ -33,7 +33,7 @@
         },
         mounted(){
             this.initGame();
-            // this.listenArrayChange();
+            this.listenArrayChange();
         },
         methods:{
             initGame(){//初始化游戏
@@ -61,8 +61,12 @@
                     x = this.getRandom();
                     y = this.getRandom();
                 }
-                arr[x][y] = 2
+                arr[x][y] = 2;
                 _this.lastArray = arr;
+                // _this.lastArray = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
+                // _this.$nextTick(()=>{
+                //     _this.lastArray = arr;
+                // })
             },
             listenArrayChange(){//监听方向键事件，动态更新数组
                 const _this = this;
