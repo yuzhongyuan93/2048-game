@@ -19,10 +19,11 @@
             numberClass(){ return 'number-'+this.number },
         },
         methods:{
-            listenKeys(){
-                document.onkeydown = function(e){
+            listenKeys() {
+                document.onkeydown = function (e) {
 
                 }
+            }
         }
     }
 </script>
