@@ -2,7 +2,7 @@
     <section id="gameBody">
         <BaseBoard></BaseBoard>
         <div id="numbers">
-            <Number :item="item" :dataArray="lastArray" v-for="item in computedArray"></Number>
+            <Number :item="item" :dataArray="lastArray" :elementKey="item.key" v-for="item in computedArray"></Number>
         </div>
     </section>
 </template>
@@ -15,16 +15,18 @@
         data(){
             return {
                 lastArray:[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]],//上一次的矩阵
+                lastComputedArray:[],
             }
         },
         computed:{
             computedArray(){//筛选出有值的项，生成新的数组
-                let arr = [];
+                let arr = this.lastComputedArray;
+                let thisKey = new Date().getTime();
                 for( let i = 0 ; i < 4 ; i++ ){
                     for( let j = 0 ; j < 4 ; j++ ){
                         let temp = this.lastArray[i][j];
                         if( temp !== 0 ){
-                            arr.push({row:i,col:j,num:this.lastArray[i][j]});
+                            arr.push({row:i,col:j,num:this.lastArray[i][j],key:thisKey});
                         }
                     }
                 }

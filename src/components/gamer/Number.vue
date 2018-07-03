@@ -1,6 +1,6 @@
 <template>
-    <div class="number" :class="[positionClass,numberClass]" @keydown="listenKeys">
-        <div class="number-inner" :name="new Date().getTime()">{{ number }}</div>
+    <div class="number" :class="[positionClass,numberClass]" :key="elementKey" @keydown="listenKeys">
+        <div class="number-inner">{{ number }}</div>
     </div>
 </template>
 
@@ -11,6 +11,7 @@
         props:{
             item:Object,//数字块信息
             dataArray:Array,//数字矩阵
+            elementKey:null,//元素标识符
         },
         data(){
             return {
@@ -26,6 +27,7 @@
         },
         mounted(){
             // this.listenKeys();
+            console.log(this.elementKey)
         },
         methods:{
             listenKeys() {
